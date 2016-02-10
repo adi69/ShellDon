@@ -24,7 +24,11 @@ Make sure you have Python 2.6+ [git is optional]
 * Apoorva Agarwal for suggesting an awesome name!
 
 ##Future Work
-
+* Synonyms
+* Origin of the word
+* More Colours
+* cache (collecting searched words)
+* feature to revise learnt words
 
 ##License
 Virtually yours! <br>
