@@ -14,6 +14,7 @@ word = sys.argv[1]
     4. Make output attractive
 '''
 
+
 def get_definition(word):
     '''
         gets the definition of the argument word from the merriam-webster
@@ -25,20 +26,27 @@ def get_definition(word):
     for item in l:
         print item.text
 
+
 def get_free_dictionary_definition(word):
     '''
         gets the definition of the argument word from the free dictionary
         exception not handled
     '''
     s = BeautifulSoup( requests.get( 'http://www.thefreedictionary.com/' + word).text, 'lxml')
-    l=s.find('div', attrs={'id':"Definition"}).find_all('div',
-            attrs={'class':'ds-list'})
+    div_id_def = s.find('div', attrs={'id':"Definition"})
     
-    for item in l:
-        print item.text
+    definition = ''
+    try:
+        all_defs = div_id_def.find_all('div', attrs={'class':'ds-list'})
+        for item in all_defs:
+            definition += item.text + '\n'
+    except:
+        definition = 'Are you sure that\'s an English word? HINT: check spelling.'
+
+    return definition
 
 
-def get_pronounciation(word):
+def get_pronunciation(word):
     '''
         gets the pronounciation of word in mp3 format from link in cambridge
         exceptions not handled
@@ -46,23 +54,30 @@ def get_pronounciation(word):
     resource = 'http://dictionary.cambridge.org/dictionary/english/'
     r = requests.get(resource + word)
     s = BeautifulSoup(r.text, 'lxml')
-    mp3_link = s.find(lambda tag:
-        tag.has_attr('data-src-mp3')).get('data-src-mp3')
+    mp3_link_area = s.find(lambda tag: tag.has_attr('data-src-mp3'))
     
+    try:
+        mp3_link = mp3_link_area.get('data-src-mp3')
+        with open('temp.mp3', 'wb') as f:
+            f.write(requests.get(mp3_link).content)
+        command = subprocess.call(shlex.split('afplay temp.mp3'))
+        command = subprocess.call(shlex.split('rm -f temp.mp3'))
+        status = ''
+    except:
+        status = 'Sorry! Pronunciation not found!'
+    
+    return status
 
-    with open('temp.mp3', 'wb') as f:
-        f.write(requests.get(mp3_link).content)
+def doit(fn, word):
+    '''
+        does nothing except returning function
+    '''
+    return fn(word)
 
-    command = subprocess.call(shlex.split('afplay temp.mp3'))
-    command = subprocess.call(shlex.split('rm -f temp.mp3'))
-
-
-def check(fn, word):
-    fn(word)
-    return True
-
-times_ = 10
-print '==' * times_ + ' Definition : ' + word + ' '  + '==' * times_
-x = check(get_free_dictionary_definition, word)
-y = check(get_pronounciation, word)
-
+if __name__ == '__main__':
+    definition = doit(get_free_dictionary_definition, word)
+    times_ = 10; print '==' * times_ + ' Definition : ' + word + ' '  + '==' * times_
+    print definition
+    
+    status = doit(get_pronunciation, word)
+    print status
