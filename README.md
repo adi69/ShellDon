@@ -21,7 +21,7 @@ Make sure you have Python 2.6+ [git is optional]
 * for definition     - *The Free Dictionary*
 
 ##Acknowledgement
-* Apoorva Agarwal for suggesting an awesome name!
+* Apoorva Aggarwal for suggesting an awesome name!
 
 ##Future Work
 * Synonyms
