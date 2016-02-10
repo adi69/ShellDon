@@ -17,8 +17,14 @@ Make sure you have Python 2.6+ [git is optional]
 ```alias define='python /path/to/ShellDictionary.py'```
 
 ##Resources
-for pronunciations - *Cambridge Advanced Learners*
-for definition     - *The Free Dictionary*
+* for pronunciations - *Cambridge Advanced Learners*
+* for definition     - *The Free Dictionary*
+
+##Acknowledgement
+* Apoorva Agarwal for suggesting an awesome name!
+
+##Future Work
+
 
 ##License
 Virtually yours! <br>
