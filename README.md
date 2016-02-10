@@ -12,8 +12,8 @@ As simple as this ```define any-damn-english-word```
 ##Installation
 Make sure you have Python 2.6+ [git is optional]
 *  Manually **Download** or **Clone** the repository using ```git clone https://github.com/adi69/ShellDon.git```
-*  install the packages from **requirements** -> ```pip install -r /path/to/requirements.txt``` 
-*  In ***~/.zshrc*** or **~/.bashrc** add the following line <br>```alias define='python /path/to/ShellDictionary.py'```
+*  install the packages from **requirements**  ```pip install -r /path/to/requirements.txt``` 
+*  In ***~/.zshrc*** or **~/.bashrc** add the following line ```alias define='python /path/to/ShellDictionary.py'```
 
 ##Resources
 * for pronunciations - *Cambridge Advanced Learners*
