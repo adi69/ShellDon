@@ -4,7 +4,10 @@ import sys
 import shlex
 import subprocess
 
-word = sys.argv[1]
+if len(sys.argv) >= 2:
+    word = sys.argv[1].lower()
+else:
+    word = 'nothing'
 
 def get_definition(word):
     '''
