@@ -6,15 +6,6 @@ import subprocess
 
 word = sys.argv[1]
 
-'''
-    Features to add:
-    1. Origin of the word
-    2. synonyms
-    3. make a cache - keep words already seen
-    4. Make output attractive
-'''
-
-
 def get_definition(word):
     '''
         gets the definition of the argument word from the merriam-webster
@@ -29,8 +20,7 @@ def get_definition(word):
 
 def get_free_dictionary_definition(word):
     '''
-        gets the definition of the argument word from the free dictionary
-        exception not handled
+        gets the definition of the argument word from thefreedictionary.com
     '''
     s = BeautifulSoup( requests.get( 'http://www.thefreedictionary.com/' + word).text, 'lxml')
     div_id_def = s.find('div', attrs={'id':"Definition"})
@@ -49,7 +39,6 @@ def get_free_dictionary_definition(word):
 def get_pronunciation(word):
     '''
         gets the pronounciation of word in mp3 format from link in cambridge
-        exceptions not handled
     '''
     resource = 'http://dictionary.cambridge.org/dictionary/english/'
     r = requests.get(resource + word)
