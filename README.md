@@ -1,5 +1,5 @@
 # ShellDon (SHELL DictiONary)
-Python script - English Dictionary and Pronunciation on your Shell <br>
+Python script - English Dictionary and **Pronunciation** on your Shell <br>
 Tested for Mac.
 
 ##Usage
