@@ -1,5 +1,5 @@
 # ShellDon (SHELL DictiONary)
-Python script - English Dictionary and **Pronunciation** on your Shell <br>
+Dictionary and **Pronunciation** on your Shell <br>
 Tested for Mac.
 
 ##Usage
@@ -23,6 +23,7 @@ Make sure you have Python 2.6+ [git is optional]
 * Apoorva Aggarwal for suggesting an awesome name!
 
 ##Future Work
+* Add Languages
 * Synonyms
 * Origin of the word
 * More Colours
