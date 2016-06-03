@@ -1,4 +1,4 @@
-# ShellDon (SHELL DictiONary)
+# ShellDon (SHELL DictiONary and pronunciar)
 Dictionary and **Pronunciation** on your Shell <br>
 Tested for Mac.
 
