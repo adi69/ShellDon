@@ -14,7 +14,7 @@ def get_definition(word):
         gets the definition of the argument word from the merriam-webster
         exception not handled
     '''
-    s = BeautifulSoup(requests.get('http://www.merriam-webster.com/dictionary/'+word).text, 'lxml')
+    s = BeautifulSoup(requests.get('http://www.merriam-webster.com/dictionary/'+word).text)
     l=s.find('ul', attrs={'class':"definition-list no-count"}).find_all('li')
     
     for item in l:
@@ -25,7 +25,7 @@ def get_free_dictionary_definition(word):
     '''
         gets the definition of the argument word from thefreedictionary.com
     '''
-    s = BeautifulSoup( requests.get( 'http://www.thefreedictionary.com/' + word).text, 'lxml')
+    s = BeautifulSoup( requests.get( 'http://www.thefreedictionary.com/' + word).text)
     div_id_def = s.find('div', attrs={'id':"Definition"})
     
     definition = ''
@@ -45,7 +45,7 @@ def get_pronunciation(word):
     '''
     resource = 'http://dictionary.cambridge.org/dictionary/english/'
     r = requests.get(resource + word)
-    s = BeautifulSoup(r.text, 'lxml')
+    s = BeautifulSoup(r.text)
     mp3_link_area = s.find(lambda tag: tag.has_attr('data-src-mp3'))
     
     try:
